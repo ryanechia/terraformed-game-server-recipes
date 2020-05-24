@@ -108,7 +108,7 @@ resource "google_compute_firewall" "terraria" {
   allow {
     protocol = "icmp"
   }
-  # SSH (for RCON-CLI access)
+  # SSH
   allow {
     protocol = "tcp"
     ports    = ["22"]
