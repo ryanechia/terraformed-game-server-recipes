@@ -9,7 +9,7 @@ locals {
   project = "imprompt-server"
   region = "asia-southeast1"
   zone = "asia-southeast1-b"
-  credentials = file("account.json")
+  credentials = file("../account.json")
 }
 
 provider "google" {
