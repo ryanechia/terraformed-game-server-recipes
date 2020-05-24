@@ -1,2 +1,3 @@
+# rename this file to `terraform.tfvars`
 gce_ssh_user=""
 gce_ssh_pub_key_file=""
