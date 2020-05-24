@@ -58,9 +58,6 @@ resource "google_compute_instance" "terraria" {
   tags = [
     "terraria"]
 
-  # Run ryanechia/terraria-vanilla-server docker image on startup
-  metadata_startup_script = "docker run -d -p 7777:7777 -v /var/terraria:/data --name terraria --rm=true ryanechia/terraria-vanilla-server:1404;"
-
   boot_disk {
     auto_delete = false
     # Keep disk after shutdown (game data)
@@ -88,6 +85,8 @@ resource "google_compute_instance" "terraria" {
 
   metadata = {
     sshKeys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
+    # Run ryanechia/terraria-vanilla-server docker image on startup
+    startup_script = "docker run -d -p 7777:7777 -v /var/terraria:/data --name terraria --rm=true ryanechia/terraria-vanilla-server:1404;"
   }
 
 }
