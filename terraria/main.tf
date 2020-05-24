@@ -1,3 +1,17 @@
+variable "gce_ssh_pub_key_file" {
+  type=string
+  description = "The location of the ssh pub key."
+
+  default=""
+}
+
+variable "gce_ssh_user" {
+  type=string
+  description = "The username of the ssh pub key."
+
+  default=""
+}
+
 terraform {
   backend "gcs" {
     prefix = "terraria/state"
@@ -71,6 +85,11 @@ resource "google_compute_instance" "terraria" {
     # Closes within 24 hours (sometimes sooner)
     automatic_restart = false
   }
+
+  metadata = {
+    sshKeys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
+  }
+
 }
 
 resource "google_compute_network" "terraria" {
