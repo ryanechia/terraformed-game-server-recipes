@@ -37,7 +37,9 @@ resource "google_compute_address" "terraria" {
 
 resource "google_compute_instance" "terraria" {
   name = "terraria"
-  machine_type = "n1-standard-1"
+  machine_type = "n1-custom-4-4096"
+  allow_stopping_for_update = true
+
   zone = local.zone
   tags = [
     "terraria"]
