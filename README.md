@@ -1,1 +1,1 @@
-# terraria-terraformed-server
+# terraformed-game-server-recipes
