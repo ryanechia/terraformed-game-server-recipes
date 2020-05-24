@@ -43,7 +43,7 @@ resource "google_compute_instance" "terraria" {
     "terraria"]
 
   # Run ryanechia/terraria-vanilla-server docker image on startup
-  metadata_startup_script = "docker run -d -p 7777:7777 -v /opt/terraria:/data --name terraria --rm=true ryanechia/terraria-vanilla-server:latest;"
+  metadata_startup_script = "docker run -d -p 7777:7777 -v /var/terraria:/data --name terraria --rm=true ryanechia/terraria-vanilla-server:latest;"
 
   boot_disk {
     auto_delete = false
